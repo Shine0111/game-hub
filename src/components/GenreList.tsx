@@ -1,4 +1,4 @@
-import { Genre } from "../hooks/useGenres";
+import useGenres, { Genre } from "../hooks/useGenres";
 import useData from "../hooks/useData";
 import {
   Button,
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, isLoading, error } = useData<Genre>("/genres");
+  const { data, isLoading, error } = useGenres();
 
   if (error) return null;
 
